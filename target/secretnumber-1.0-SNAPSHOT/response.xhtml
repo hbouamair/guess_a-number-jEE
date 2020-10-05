@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    <title> Guessnumber with Tommy </title>
+    <style type="text/css">
+        .responseTextCSS {
+            font-size: xx-large;
+    		padding: 10px;
+        }
+    </style>
+</h:head>
+   
+<h:body>
+    <div class="container">
+    <div class="card text-center" >
+        <div class="card-header"><h3> Guess Number With Tommy</h3></div>
+      <div class="card-body">
+ 
+  
+                <h:form id="responseForm">                
+                    <div class="form-group">
+                        
+                         
+                        
+                        
+                        <h:outputText styleClass="responseTextCSS" id="result" value="#{SecretNumber.response}"/>
+                        <h:outputLabel rendered="#{SecretNumber.btnV}" >
+                        <div class="alert alert-success" role="alert">
+                        
+                            <h2>Votre Score 
+                        <span class="badge badge-primary">
+                            
+                       <h:outputText id="score"  value="#{SecretNumber.score}"/>
+                        </span></h2>
+                        </div>
+                            </h:outputLabel>
+                                
+                                
+                    </div>
+                    <div id="successBtn">
+                       <h:graphicImage  rendered="#{SecretNumber.btnV}" library="images" name="congrats.png" />
+                        <h:commandButton rendered="#{SecretNumber.btnV}" id="errBack" value="Guess again !" action="error" styleClass="btn btn-success" />                        
+                    </div>  
+                    <div id="errorBtn"> 
+                        <h:graphicImage  rendered="#{!SecretNumber.btnV}"  library="images" name="sorry.jpeg" />
+                        <h:commandButton  rendered="#{!SecretNumber.btnV}" id="successBack" value="Guess again !" action="success" styleClass="btn btn-danger" />
+                        
+                    </div>
+                    
+                   <div class="card-footer text-muted">
+                    <h5>
+                        Il reste 
+                     <span class="badge badge-warning">
+                            
+                         <h:outputText id="remainguess"  value="#{SecretNumber.remainingGuesses}"/>
+                         
+                        </span> tentatives !! </h5>
+                    </div>
+                </h:form>
+            </div>
+  
+    </div>
+    </div>
+</h:body>
+</html>

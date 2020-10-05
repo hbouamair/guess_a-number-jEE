@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd" version="2.2">
+	<navigation-rule>
+		<from-view-id>/homepage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/response.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/response.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/homepage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/response.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/homepage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<managed-bean>
+		<managed-bean-name>SecretNumber</managed-bean-name>
+		<managed-bean-class>com.mycompany.usernumber.SecretNumber</managed-bean-class>
+	
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>minimum</property-name>
+			<property-class>int</property-class>
+			<value>1</value>
+		</managed-property>
+		<managed-property>
+			<property-name>maximum</property-name>
+			<property-class>int</property-class>
+			<value>10</value>
+		</managed-property></managed-bean>
+	<managed-bean>
+		<managed-bean-name>requestBean</managed-bean-name>
+		<managed-bean-class>com.jsf.guessnumber.example.SecretNumber</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>minimum</property-name>
+			<property-class>int</property-class>
+			<value>12</value>
+		</managed-property>
+		<managed-property>
+			<property-name>maximum</property-name>
+			<property-class>int</property-class>
+			<value>22</value>
+		</managed-property>
+	</managed-bean>
+</faces-config>
